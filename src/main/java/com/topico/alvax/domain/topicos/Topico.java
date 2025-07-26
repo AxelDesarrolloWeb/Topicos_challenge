@@ -23,6 +23,7 @@ public class Topico {
     private String autor;
     private String curso;
     private String mensaje;
+    @Column(name = "fecha_creacion") // Añade esta anotación
     private LocalDateTime fechaCreacion;
     private Boolean status;
 
@@ -31,8 +32,8 @@ public class Topico {
         this.autor = datos.autor();
         this.curso = datos.curso();
         this.mensaje = datos.mensaje();
-        this.status = true; // Default status
-        this.fechaCreacion = LocalDateTime.now();
+        this.status = true;
+        this.fechaCreacion = LocalDateTime.now(); // Genera automáticamente
     }
 
     public void actualizarInformaciones(DatosActualizarTopico datos) {

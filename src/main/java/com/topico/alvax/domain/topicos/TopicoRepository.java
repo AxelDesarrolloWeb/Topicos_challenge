@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 public interface TopicoRepository extends JpaRepository<Topico, Long> {
+    Page<Topico> findAllByStatusTrue(Pageable paginacion);
+
     @Query("SELECT t FROM Topico t WHERE t.status = true")
     Page<Topico> findAllByActivoTrue(Pageable paginacion);
 }

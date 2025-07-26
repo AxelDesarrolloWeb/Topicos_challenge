@@ -1,7 +1,5 @@
 package com.topico.alvax.infra.security;
 
-import com.topico.alvax.domain.usuarios.DatosAutenticacionUsuario;
-import com.topico.alvax.domain.usuarios.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,8 +28,9 @@ public class SecurityConfigurations {
                 .authorizeHttpRequests((authorizeHttpRequests) ->
                         authorizeHttpRequests
                                 .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
+                                .requestMatchers(HttpMethod.POST, "/auth/registro").permitAll()
                                 .requestMatchers("/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**").permitAll()
-                                .anyRequest().authenticated()
+                                .anyRequest().authenticated() // Todos los demás endpoints requieren autenticación
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
@@ -47,14 +46,4 @@ public class SecurityConfigurations {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
-//@Autowired
-//private PasswordEncoder passwordEncoder;
-//    private Usuario usuario;
-//public void registrarUsuario(DatosAutenticacionUsuario datos) {
-//    String encryptedPassword = passwordEncoder.encode(datos.contrasena());
-//    Usuario usuario = new Usuario(datos.email(), encryptedPassword);
-//    usuarioRepository.save(usuario);
-//}
-
 }

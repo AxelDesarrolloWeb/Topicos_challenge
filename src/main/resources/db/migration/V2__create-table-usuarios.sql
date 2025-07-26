@@ -1,6 +1,6 @@
-CREATE TABLE usuarios(  -- Cambiado nombre de tabla
+CREATE TABLE usuarios(
     id BIGINT NOT NULL AUTO_INCREMENT,
     email VARCHAR(100) NOT NULL UNIQUE,
-    contrasena VARCHAR(300) NOT NULL,  -- Corregido nombre
+    contrasena VARCHAR(300) NOT NULL,
     PRIMARY KEY(id)
 );
