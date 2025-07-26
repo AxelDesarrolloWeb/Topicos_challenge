@@ -101,6 +101,12 @@ La aplicación estará disponible en: `http://localhost:8087`
    }
    ```
 
+Ejemplo:
+
+https://github.com/user-attachments/assets/2f2d4248-055e-4d9e-8117-eb1e140cc37f
+
+
+
 ### Operaciones con tópicos (requieren autenticación)
 
 **Crear tópico**:
